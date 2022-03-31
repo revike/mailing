@@ -1,5 +1,7 @@
 from django.core.management import BaseCommand
 
+from authenticated.models import User
+
 
 class Command(BaseCommand):
     """Команда для создания супер юзера"""
@@ -7,6 +9,5 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if not User.objects.filter(is_staff=True, is_superuser=True):
             User.objects.create_superuser(
-                username='admin', email='admin_email@local.ru',
-                password='admin',last_name='admin', first_name='admin'
+                username='admin', email='admin@local.ru', password='admin'
             )
