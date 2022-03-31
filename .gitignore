@@ -1,3 +1,8 @@
+.idea
+.vscode
+*.pyc
+__pycache__
+
 /venv/
 /mailing/.env
 /mailing/db.sqlite3
