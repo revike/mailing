@@ -15,18 +15,31 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from drf_yasg import openapi, views
+from rest_framework import permissions
 from rest_framework.routers import DefaultRouter
 
-from main.views import ClientModelViewSet, MailingModelViewSet, \
-    MessageModelViewSet
+from main.views import ClientModelViewSet, MailingModelViewSet
 
 router = DefaultRouter()
 router.register('client', ClientModelViewSet)
 router.register('mailing', MailingModelViewSet)
-router.register('message', MessageModelViewSet)
+
+schema_view = views.get_schema_view(
+    openapi.Info(
+        title="Mailing",
+        default_version='0.1',
+        description="Documentation to Mailing",
+        contact=openapi.Contact(email="revike@ya.ru"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
+    path('docs/', schema_view.with_ui('swagger', cache_timeout=0),
+         name='schema-swagger-ui'),
 ]

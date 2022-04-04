@@ -38,7 +38,7 @@ class Client(models.Model):
         verbose_name_plural = 'Clients'
         verbose_name = 'Clients'
 
-    TIMEZONE = tuple(zip(pytz.all_timezones, pytz.all_timezones))
+    TIMEZONE = tuple(zip(pytz.common_timezones, pytz.common_timezones))
     phone_regex = RegexValidator(regex=r"^7\d{10}$")
 
     phone = models.CharField(validators=[phone_regex], max_length=11,
@@ -79,7 +79,7 @@ class Message(models.Model):
         verbose_name_plural = 'Messages'
         verbose_name = 'Messages'
 
-    created = models.DateTimeField(auto_now_add=True, verbose_name='created')
+    created = models.DateTimeField(auto_now=True, verbose_name='created')
     status = models.BooleanField(default=False, db_index=True,
                                  verbose_name='send')
     mailing = models.ForeignKey(MailingList, on_delete=models.CASCADE,

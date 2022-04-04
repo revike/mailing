@@ -2,9 +2,10 @@ from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, \
     UpdateModelMixin, CreateModelMixin, DestroyModelMixin
 from rest_framework.viewsets import GenericViewSet
 
-from main.models import Client, MailingList, Message, Tag, CodeMobile
+from main.models import Client, MailingList, Tag, CodeMobile
 from main.serializers import ClientModelSerializer, MailingModelSerializer, \
-    MessageModelSerializer
+    MailingDetailSerializer
+from main.tasks import mailing_start
 
 
 class ClientModelViewSet(ListModelMixin, RetrieveModelMixin, UpdateModelMixin,
@@ -46,8 +47,19 @@ class MailingModelViewSet(ListModelMixin, RetrieveModelMixin, UpdateModelMixin,
     queryset = MailingList.objects.all()
     serializer_class = MailingModelSerializer
 
+    def get_serializer_class(self):
+        if self.__dict__['detail']:
+            return MailingDetailSerializer
+        return super().get_serializer_class()
 
-class MessageModelViewSet(ListModelMixin, GenericViewSet):
-    """Massage model view set"""
-    queryset = Message.objects.all()
-    serializer_class = MessageModelSerializer
+    def perform_create(self, serializer):
+        create = super().perform_create(serializer)
+        mailing = serializer.data
+        mailing_start.apply_async(countdown=1, args=[mailing])
+        return create
+
+    def perform_update(self, serializer):
+        update = super().perform_update(serializer)
+        mailing = serializer.data
+        mailing_start.apply_async(countdown=1, args=[mailing])
+        return update

@@ -1,6 +1,45 @@
 version: "3.3"
 
 services:
+  celery:
+    restart: always
+    container_name: celery
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "cd mailing && celery -A mailing worker -l info"
+    volumes:
+      - celery_data:/var/lib/cellery/data
+
+  celery_beat:
+    restart: always
+    container_name: celery_beat
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "cd mailing && celery -A mailing beat -l info"
+    volumes:
+      - celery_beat:/var/lib/cellery_beat/data
+
+  rebbitmq:
+    restart: always
+    container_name: rabbitmq
+    image: rabbitmq:latest
+    ports:
+      - "5672:5672"
+    volumes:
+      - rebbitmq_data:/var/lib/rabbitmq/data
+      - rebbitmq_log:/var/lig/rabbitmq/log
+
+  db:
+    image: postgres
+    container_name: mailing_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    env_file:
+      - ./mailing/.env
+    restart: unless-stopped
+
   backend:
     build:
       context: .
@@ -14,3 +53,13 @@ services:
     restart: unless-stopped
     ports:
       - "8080:8080"
+    depends_on:
+      - db
+
+
+volumes:
+  pg_data:
+  celery_data:
+  celery_beat:
+  rebbitmq_data:
+  rebbitmq_log:
