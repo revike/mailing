@@ -1,0 +1,456 @@
+[
+  {
+    "model": "sessions.session",
+    "pk": "lhihk2wxmfy3wou5dag36jr25u471zwk",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGlnrj7xZSnrOYNm7Dg4gR4qTCnF3iJQC2jcz76Vi2tYat16WOIk6K6NOv1tO_ChtB3JP7TZrntu6TFnvij5o19dZyvNyuH8HNfX6rccRLTMJsQSGhBkJDBownLGQy94jeQNIWNAGJ-w4WBjAehQng1XvD-LMNxs:1nbKn7:2iG0CtLo3045UfZ4-W-J4uzawKtbpFnvw-WcAB2dQyE",
+      "expire_date": "2022-04-18T11:22:37.665Z"
+    }
+  },
+  {
+    "model": "main.tag",
+    "pk": 1,
+    "fields": {
+      "tag": "tag"
+    }
+  },
+  {
+    "model": "main.tag",
+    "pk": 2,
+    "fields": {
+      "tag": "tag7"
+    }
+  },
+  {
+    "model": "main.tag",
+    "pk": 3,
+    "fields": {
+      "tag": "client"
+    }
+  },
+  {
+    "model": "main.tag",
+    "pk": 4,
+    "fields": {
+      "tag": "123"
+    }
+  },
+  {
+    "model": "main.tag",
+    "pk": 5,
+    "fields": {
+      "tag": "tags"
+    }
+  },
+  {
+    "model": "main.tag",
+    "pk": 6,
+    "fields": {
+      "tag": "tag europe"
+    }
+  },
+  {
+    "model": "main.codemobile",
+    "pk": 1,
+    "fields": {
+      "code_mobile": "999"
+    }
+  },
+  {
+    "model": "main.client",
+    "pk": 1,
+    "fields": {
+      "phone": "79999999990",
+      "code_mobile": 1,
+      "tag": 1,
+      "timezone": "Europe/Moscow"
+    }
+  },
+  {
+    "model": "main.client",
+    "pk": 2,
+    "fields": {
+      "phone": "79999999999",
+      "code_mobile": 1,
+      "tag": 1,
+      "timezone": "Africa/Abidjan"
+    }
+  },
+  {
+    "model": "main.client",
+    "pk": 3,
+    "fields": {
+      "phone": "79999999998",
+      "code_mobile": 1,
+      "tag": 3,
+      "timezone": "Asia/Atyrau"
+    }
+  },
+  {
+    "model": "main.client",
+    "pk": 4,
+    "fields": {
+      "phone": "79999999997",
+      "code_mobile": 1,
+      "tag": 3,
+      "timezone": "Asia/Atyrau"
+    }
+  },
+  {
+    "model": "main.client",
+    "pk": 5,
+    "fields": {
+      "phone": "79999999996",
+      "code_mobile": 1,
+      "tag": 5,
+      "timezone": "Europe/Budapest"
+    }
+  },
+  {
+    "model": "main.client",
+    "pk": 6,
+    "fields": {
+      "phone": "79999999995",
+      "code_mobile": 1,
+      "tag": 5,
+      "timezone": "Europe/Budapest"
+    }
+  },
+  {
+    "model": "main.client",
+    "pk": 7,
+    "fields": {
+      "phone": "79999999994",
+      "code_mobile": 1,
+      "tag": 5,
+      "timezone": "Europe/Helsinki"
+    }
+  },
+  {
+    "model": "main.client",
+    "pk": 8,
+    "fields": {
+      "phone": "79999999993",
+      "code_mobile": 1,
+      "tag": 6,
+      "timezone": "Europe/Helsinki"
+    }
+  },
+  {
+    "model": "main.client",
+    "pk": 9,
+    "fields": {
+      "phone": "79999999992",
+      "code_mobile": 1,
+      "tag": 6,
+      "timezone": "Europe/Helsinki"
+    }
+  },
+  {
+    "model": "main.client",
+    "pk": 10,
+    "fields": {
+      "phone": "79999999991",
+      "code_mobile": 1,
+      "tag": 6,
+      "timezone": "Europe/Helsinki"
+    }
+  },
+  {
+    "model": "main.mailinglist",
+    "pk": 1,
+    "fields": {
+      "text_msg": "message",
+      "start": "2022-04-03T11:23:00Z",
+      "finish": "2022-04-06T11:23:00Z",
+      "tags": [],
+      "code": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "main.mailinglist",
+    "pk": 2,
+    "fields": {
+      "text_msg": "message text",
+      "start": "2022-04-04T13:45:00Z",
+      "finish": "2022-04-08T13:45:00Z",
+      "tags": [
+        2,
+        4,
+        5
+      ],
+      "code": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "main.mailinglist",
+    "pk": 3,
+    "fields": {
+      "text_msg": "warning!",
+      "start": "2022-03-30T13:45:00Z",
+      "finish": "2022-04-06T13:45:00Z",
+      "tags": [
+        1
+      ],
+      "code": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "main.mailinglist",
+    "pk": 4,
+    "fields": {
+      "text_msg": "sorry",
+      "start": "2022-04-01T13:46:00Z",
+      "finish": "2022-04-06T13:46:00Z",
+      "tags": [
+        1,
+        5,
+        6
+      ],
+      "code": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "main.mailinglist",
+    "pk": 5,
+    "fields": {
+      "text_msg": "msg text",
+      "start": "2022-04-01T13:46:00Z",
+      "finish": "2022-04-16T13:46:00Z",
+      "tags": [
+        1,
+        5,
+        6
+      ],
+      "code": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 1,
+    "fields": {
+      "created": "2022-04-04T11:23:59.358Z",
+      "status": true,
+      "mailing": 1,
+      "client": 1
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 2,
+    "fields": {
+      "created": "2022-04-04T13:45:24.824Z",
+      "status": true,
+      "mailing": 2,
+      "client": 7
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 3,
+    "fields": {
+      "created": "2022-04-04T13:45:53.274Z",
+      "status": true,
+      "mailing": 3,
+      "client": 2
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 4,
+    "fields": {
+      "created": "2022-04-04T13:45:53.285Z",
+      "status": true,
+      "mailing": 3,
+      "client": 1
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 5,
+    "fields": {
+      "created": "2022-04-04T13:46:15.695Z",
+      "status": true,
+      "mailing": 4,
+      "client": 2
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 6,
+    "fields": {
+      "created": "2022-04-04T13:46:15.704Z",
+      "status": true,
+      "mailing": 4,
+      "client": 1
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 7,
+    "fields": {
+      "created": "2022-04-04T13:46:15.705Z",
+      "status": true,
+      "mailing": 4,
+      "client": 6
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 8,
+    "fields": {
+      "created": "2022-04-04T13:46:15.711Z",
+      "status": true,
+      "mailing": 4,
+      "client": 5
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 9,
+    "fields": {
+      "created": "2022-04-04T13:46:15.715Z",
+      "status": true,
+      "mailing": 4,
+      "client": 9
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 10,
+    "fields": {
+      "created": "2022-04-04T13:46:15.720Z",
+      "status": true,
+      "mailing": 4,
+      "client": 8
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 11,
+    "fields": {
+      "created": "2022-04-04T13:46:15.726Z",
+      "status": true,
+      "mailing": 4,
+      "client": 7
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 12,
+    "fields": {
+      "created": "2022-04-04T13:46:15.726Z",
+      "status": true,
+      "mailing": 4,
+      "client": 10
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 13,
+    "fields": {
+      "created": "2022-04-04T13:46:35.736Z",
+      "status": true,
+      "mailing": 5,
+      "client": 2
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 14,
+    "fields": {
+      "created": "2022-04-04T13:46:35.745Z",
+      "status": true,
+      "mailing": 5,
+      "client": 1
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 15,
+    "fields": {
+      "created": "2022-04-04T13:46:35.749Z",
+      "status": true,
+      "mailing": 5,
+      "client": 8
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 16,
+    "fields": {
+      "created": "2022-04-04T13:46:35.760Z",
+      "status": true,
+      "mailing": 5,
+      "client": 10
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 17,
+    "fields": {
+      "created": "2022-04-04T13:46:35.760Z",
+      "status": true,
+      "mailing": 5,
+      "client": 6
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 18,
+    "fields": {
+      "created": "2022-04-04T13:46:35.767Z",
+      "status": true,
+      "mailing": 5,
+      "client": 5
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 19,
+    "fields": {
+      "created": "2022-04-04T13:46:35.767Z",
+      "status": true,
+      "mailing": 5,
+      "client": 9
+    }
+  },
+  {
+    "model": "main.message",
+    "pk": 20,
+    "fields": {
+      "created": "2022-04-04T13:46:35.774Z",
+      "status": true,
+      "mailing": 5,
+      "client": 7
+    }
+  },
+  {
+    "model": "authenticated.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$QoOXFW7Fmfu9inhvjb4zK4$kan+h0FbdhA8b24mjYRgOm9fjDLBslb8m/qetU8NZ+A=",
+      "last_login": "2022-04-04T11:22:37.661Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@local.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-04-04T11:22:27.049Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
