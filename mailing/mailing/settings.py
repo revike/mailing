@@ -34,7 +34,6 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(' ')
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,9 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'drf_yasg',
+    'django_celery_beat',
     'rest_framework',
 
     'main',
+    'authenticated',
 ]
 
 MIDDLEWARE = [
@@ -80,17 +82,33 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mailing.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer'
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ],
+}
+
+if DEBUG:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'].append(
+        'rest_framework.renderers.BrowsableAPIRenderer'
+    )
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': env('POSTGRES_DB'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('POSTGRES_HOST'),
+        'PORT': env('POSTGRES_PORT')
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -110,6 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'authenticated.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -122,13 +141,28 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
+# STATICFILES_DIRS = (BASE_DIR / "static", )
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Celery
+CELERY_BROKER_URL = env('CELERY_BROKER_URL')
+# CELERY_RESULT_BACKEND = env('CELERY_RESULT_BACKEND')
+CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+# Mailing Server
+MAILING_SERVER = env('MAILING_SERVER')
+
+# JWT
+JWT_TOKEN = env('JWT_TOKEN')
